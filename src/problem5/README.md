@@ -1,0 +1,1 @@
+To call ./test.js, create a .env file in the problem5 folder with the following environmental variable: API_KEY={ALCHEMY API KEY}
