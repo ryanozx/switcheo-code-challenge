@@ -1,8 +1,208 @@
+/* reset default margin and padding */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* set font family */
 body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* style form wrapper */
+form {
+  max-width: 600px;
+  margin: 50px auto;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  background-color: #202124;
+  color: #fff;
+  position: relative;
+}
+
+/* style form fields */
+.form-group {
+  margin-bottom: 30px;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-control:focus {
+  outline: none;
+  background-color: #555;
+}
+
+/* style input group */
+.input-group {
   display: flex;
-  flex-direction: row;
   align-items: center;
+}
+
+.input-group .input-group-text {
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  padding: 12px;
+  color: #fff;
+  font-size: 16px;
+  position: absolute;
+}
+
+.input-group .form-control {
+  padding-left: 70px;
+}
+
+/* style form button */
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  background-color: #7c5dfa;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #9277ff;
+}
+
+.btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* style error message */
+
+.errormsg {
+  display: none;
+}
+
+.error {
+  color: #ff4d4d;
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
+}
+
+/* style loading overlay */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
   justify-content: center;
-  min-width: 360px;
-  font-family: Arial, Helvetica, sans-serif;
+  align-items: center;
+}
+
+.loading-overlay .spinner {
+  border: 2px solid #fff;
+  border-top: 2px solid #7c5dfa;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: loading 1s infinite linear;
+}
+
+.loading-overlay p {
+  color: #fff;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+/* keyframe for loading animation */
+@keyframes loading {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* style success overlay */
+/* style success overlay */
+.success-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-overlay p {
+  color: #fff;
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+/* darken form on submit */
+form.submitting {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* hide form elements on submit */
+form.submitting .form-group {
+  display: none;
+}
+
+/* hide form elements after submitted */
+form.submitted .form-group {
+  display: none;
+}
+
+/* show loading overlay on submit */
+form.submitting .loading-overlay {
+  display: flex;
+}
+
+/* disable button on submit */
+form.submitting .btn {
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+
+/* remove error messages on submit */
+form.submitting .errormsg {
+  display: none;
 }
