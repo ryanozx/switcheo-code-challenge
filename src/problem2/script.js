@@ -35,11 +35,6 @@ form.addEventListener('submit', (event) => {
     return;
   }
 
-  // check if form is already submitting
-  if (form.classList.contains('submitting')) {
-    return;
-  }
-
   // validate form inputs
   let isValid = true;
 
